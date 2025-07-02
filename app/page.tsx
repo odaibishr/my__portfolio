@@ -18,7 +18,8 @@ export default async function Home() {
       <HeroSection
         data={portfolio}
       />
-    
+      {/* <TechSectin /> */}
+
     </>
   );
 }
