@@ -6,6 +6,7 @@ import { technology } from './technology'
 import { about } from './about'
 import { certificate } from './certificate'
 import { project } from './project'
+import { skill } from './skill'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -15,5 +16,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     about,
     certificate,
     project,
+    skill,
   ],
 }

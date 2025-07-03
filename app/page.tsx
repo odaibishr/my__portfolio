@@ -3,8 +3,22 @@ import { client } from "@/sanity/lib/client";
 import { PORTFOLIO_QUERY } from "@/sanity/queries";
 import { Portfolio } from "@/sanity.types";
 import HeroSection from "@/components/heroSection";
+import { TechSection } from "@/components/techSection";
 
 export default async function Home() {
+
+  const skills = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "TailwindCSS",
+    "GSAP",
+    "Redux",
+    "Node.js"
+  ];
 
   // Fetch data from Sanity
   const portfolioData = await client.fetch<Portfolio[]>(PORTFOLIO_QUERY, {});
@@ -18,7 +32,8 @@ export default async function Home() {
       <HeroSection
         data={portfolio}
       />
-      {/* <TechSectin /> */}
+      <TechSection />
+      {/* <SkillsSlider skills={skills} /> */}
 
     </>
   );

@@ -11,5 +11,6 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('about').title('About'),
       S.documentTypeListItem('certificate').title('Certificate'),
       S.documentTypeListItem('social').title('Social'),
+      S.documentTypeListItem('skill').title('Skill'),
       S.divider(),
     ])

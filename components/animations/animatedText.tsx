@@ -11,21 +11,24 @@ export default function AnimatedText({ text, type, className, duration, stagger,
     const textRef = useRef<HTMLDivElement | null>(null);
 
     useGSAP(() => {
-        const split = SplitText.create(textRef.current, {
-            type: "words, chars",
-            wordsClass: "word++",
-            
+        document.fonts.onloadingdone = () => {
+            // do something after all fonts are loaded
+            const split = SplitText.create(textRef.current, {
+                type: "words, chars",
+                wordsClass: "word++",
 
-        });
 
-        gsap.from(type == "words" ? split.words : split.chars, {
-            opacity: 0,
-            y: from,
-            ease: "expo.inOut",
-            duration: duration,
-            stagger: stagger || 0.05,
-            
-        })
+            });
+
+            gsap.from(type == "words" ? split.words : split.chars, {
+                opacity: 0,
+                y: from,
+                ease: "expo.inOut",
+                duration: duration,
+                stagger: stagger || 0.05,
+
+            });
+        };
     }, {
         scope: textRef,
     });

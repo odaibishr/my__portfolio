@@ -22,6 +22,10 @@ export const TECHNOLOGIES_QUERY = `*[_type == "technology"]{
     ...,
 }`;
 
+export const SKILLS_QUERY = `*[_type == "skill"]{
+    ...,
+}`;
+
 export const ABOUT_QUERY = `*[_type == "about"]{
     ...,
     "certificateList": certificateList[]->{

@@ -32,7 +32,7 @@ const Links = [
 export default function Header() {
     const pathname = usesPathname();
     return (
-        <header className="fixed top-0 z-10  w-full">
+        <header className={cn("fixed bg-background border-b border-accent top-0 z-10  w-full", (pathname.includes('studio') ? 'hidden' : ''))}>
             <nav className="pt-3 container flex items-center justify-between">
                 <Link href="/" className="text-lg font-bold">
                     <Image src="/logo.png" alt="Logo" width={60} height={60} className="" priority />
