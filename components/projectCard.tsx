@@ -1,0 +1,45 @@
+// components/ProjectCard.tsx
+'use client';
+import Image from 'next/image';
+import { urlFor } from '@/sanity/lib/image';
+
+type Project = {
+    _id: string;
+    title: string;
+    description: string;
+    prjectImage?: any;
+};
+
+export default function ProjectCard({ project, innerRef }: { project: Project; innerRef?: (el: HTMLDivElement | null) => void }) {
+    return (
+        <div
+            ref={innerRef}
+            className="group relative rounded-3xl transition-all duration-500"
+        >
+            <div className="relative h-80 group">
+                {project.prjectImage ? (
+                    <Image
+                        src={urlFor(project.prjectImage).url()}
+                        alt={project.title}
+                        fill
+                        className="object-cover rounded-3xl w-full h-80 transition-transform duration-700 group-hover:scale-101 group-hover:shadow-3xl"
+                    />
+                ) : (
+                    <div className="w-full h-80 flex items-center justify-center bg-muted text-muted-foreground text-sm">
+                        No Image
+                    </div>
+                )}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-101 rounded-3xl" />
+            </div>
+
+            <div className="p-6">
+                <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                </h3>
+                <p className="text-muted-foreground text-sm line-clamp-3">
+                    {project.description}
+                </p>
+            </div>
+        </div>
+    );
+}

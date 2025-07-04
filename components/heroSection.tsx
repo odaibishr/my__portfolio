@@ -23,7 +23,7 @@ export default function HeroSection({ data }: {
 
                 {/* <!-- Title --> */}
                 <div className="text-center mt-10">
-                    <AnimatedText type="words" text={data.heroHeader ?? ""} stagger={0.05} duration={1} from={-50} className="subtitle block font-bold text-foreground text-4xl md:text-5xl lg:text-6xl dark:text-neutral-200" />
+                    <AnimatedText type="words" text={data.heroHeader ?? ""} stagger={0.05} duration={1} from={-50} className="subtitle block font-bold text-foreground text-4xl md:text-5xl lg:text-6xl" />
                 </div>
                 {/* <!-- End Title --> */}
 

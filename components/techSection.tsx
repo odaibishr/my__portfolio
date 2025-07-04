@@ -16,6 +16,7 @@ export async function TechSection() {
     return (
         <section className="">
             <InfiniteSlider skills={skills} isReverse={true} />
+            <InfiniteSlider skills={skills} isReverse={false} />
         </section>
     );
 }

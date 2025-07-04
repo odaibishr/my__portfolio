@@ -30,10 +30,10 @@ export default function InfiniteSlider({ skills, isReverse }: { skills: Skill[],
     const repeatedLogos = [...skills, ...skills, ...skills, ...skills];
 
     return (
-        <div className="relative  py-4 ">
+        <div className="relative py-4 ">
 
-            <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-background to-transparent z-10" />
+            <div className="absolute left-0 top-0  w-24 bg-linear-to-r from-background  z-10 inset-y-0" />
+            <div className="absolute right-0 top-0 w-24 bg-linear-to-l from-background z-10 inset-y-0" />
             <div
                 ref={containerRef}
                 className="flex gap-10 items-center overflow-hidden"

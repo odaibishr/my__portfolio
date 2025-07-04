@@ -4,24 +4,16 @@ import { PORTFOLIO_QUERY } from "@/sanity/queries";
 import { Portfolio } from "@/sanity.types";
 import HeroSection from "@/components/heroSection";
 import { TechSection } from "@/components/techSection";
+import AboutSection from "@/components/aboutSection";
+import AnimatedClients from "@/components/projecstSection";
+import ProjecstSection from "@/components/projecstSection";
 
 export default async function Home() {
 
-  const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "TailwindCSS",
-    "GSAP",
-    "Redux",
-    "Node.js"
-  ];
 
-  // Fetch data from Sanity
+
   const portfolioData = await client.fetch<Portfolio[]>(PORTFOLIO_QUERY, {});
+  
   const portfolio = portfolioData[0];
   if (!portfolio) {
     return <div>No portfolio data found</div>;
@@ -33,8 +25,8 @@ export default async function Home() {
         data={portfolio}
       />
       <TechSection />
-      {/* <SkillsSlider skills={skills} /> */}
-
+      <AboutSection title={portfolio.aboutTitle ?? ""} subtitle={portfolio.aboutSubTitle?? ""} />
+      <ProjecstSection portfolio={portfolio} />
     </>
   );
 }
