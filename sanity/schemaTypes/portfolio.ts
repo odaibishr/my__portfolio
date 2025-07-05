@@ -93,6 +93,24 @@ export const portfolio = defineType({
         }),
 
         defineField({
+            name: 'faqsHeading',
+            title: 'FAQs Heading',
+            type: 'string',
+        }),
+
+        defineField({
+            name: "faqsTitle",
+            title: "FAQs Title",
+            type: "string",
+        }),
+
+        defineField({
+            name: "faqsSubTitle",
+            title: "FAQs Sub Title",
+            type: "string",
+        }),
+
+        defineField({
             name: "faqs",
             title: "FAQs",
             type: "array",

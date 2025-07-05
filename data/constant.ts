@@ -10,3 +10,8 @@ export type Skill = {
     description: string;
     image: string;
 };
+
+export type Faqs = {
+    question: string;
+    answer: string;
+};

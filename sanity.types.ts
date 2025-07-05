@@ -174,6 +174,16 @@ export type Portfolio = {
     _key: string;
     [internalGroqTypeReferenceTo]?: "technology";
   }>;
+  faqsHeading?: string;
+  faqsTitle?: string;
+  faqsSubTitle?: string;
+  faqs?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "faqs";
+  }>;
   contactTitle?: string;
   contactSubTitle?: string;
   contactEmail?: string;

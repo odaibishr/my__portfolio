@@ -6,6 +6,7 @@ import { TechSection } from "@/components/techSection";
 import AboutSection from "@/components/aboutSection";
 import ProjecstSection from "@/components/projecstSection";
 import SpecialitySection from "@/components/specialitySection";
+import FaqsSection from "@/components/faqsSection";
 
 export default async function Home() {
 
@@ -27,6 +28,7 @@ export default async function Home() {
       <AboutSection title={portfolio.aboutTitle ?? ""} subtitle={portfolio.aboutSubTitle?? ""} />
       <ProjecstSection portfolio={portfolio} />
       <SpecialitySection titel={portfolio.specialityTitle ?? ""} subtile={portfolio.specialitySubTitle ?? ""} technologies={portfolio.technologies as any[]}/>
+      <FaqsSection portfolio={portfolio}/>
     </>
   );
 }
