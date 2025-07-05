@@ -34,7 +34,7 @@ export default function ProjectCard({ project, innerRef }: { project: Project; i
             </div>
 
             <div className="p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-2xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                 </h3>
                 <p className="text-muted-foreground text-sm line-clamp-3">

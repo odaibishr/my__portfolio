@@ -168,7 +168,8 @@
 }
 
 body {
-	letter-spacing: var(--tracking-normal);
+	/* letter-spacing: var(--tracking-wide); */
+	word-spacing: 2px;
 }
 
 @layer utilities {

@@ -1,14 +1,12 @@
 'use client';
 
 import { useEffect, useRef } from "react";
-
 import { horizontalLoop } from "@/lib/horizontalLoop";
 import { Skill } from "@/data/constant";
 import SkillCard from "../skillCard";
 export default function InfiniteSlider({ skills, isReverse }: { skills: Skill[], isReverse: boolean }) {
 
     const containerRef = useRef<HTMLDivElement>(null);
-
 
     useEffect(() => {
         if (!containerRef.current) return;

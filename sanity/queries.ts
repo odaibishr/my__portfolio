@@ -18,6 +18,10 @@ export const PROJECTS_QUERY = `*[_type == "project"]{
     }
 }`;
 
+export const FAQS_QUERY = `*[_type == "faqs"]{
+    ...,
+}`;
+
 export const TECHNOLOGIES_QUERY = `*[_type == "technology"]{
     ...,
 }`;

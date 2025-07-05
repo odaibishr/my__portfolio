@@ -1,4 +1,3 @@
-// hooks/useProjectAnimations.ts
 'use client';
 import { useEffect } from 'react';
 import gsap from 'gsap';
