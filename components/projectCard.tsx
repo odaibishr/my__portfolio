@@ -22,7 +22,9 @@ export default function ProjectCard({ project, innerRef }: { project: Project; i
                         src={urlFor(project.prjectImage).url()}
                         alt={project.title}
                         fill
+                        priority
                         className="object-cover rounded-3xl w-full h-80 transition-transform duration-700 group-hover:scale-101 group-hover:shadow-3xl"
+                        sizes='width: 80, fill: 100'
                     />
                 ) : (
                     <div className="w-full h-80 flex items-center justify-center bg-muted text-muted-foreground text-sm">

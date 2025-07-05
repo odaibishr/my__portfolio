@@ -11,7 +11,7 @@ export default function HeroButton({ text, herf }: { text: string; herf: string 
     // GSAP animation for the button
     useGSAP(() => {
         gsap.from(ref.current, {
-            opacity: 0,
+            autoAlpha: 0,
             scale: 0.5,
             ease: "expo.inOut",
             duration: 1,

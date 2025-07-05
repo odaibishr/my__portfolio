@@ -35,6 +35,7 @@ export default function ProjectAnimatioin(
                             end: 'bottom center',
                             toggleActions: 'play none none reverse',
                             scrub: true,
+                            anticipatePin: 1,
                         },
                     }
                 );

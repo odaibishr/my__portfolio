@@ -1,12 +1,9 @@
 'use client';
 import { Portfolio } from '@/sanity.types';
-import Image from 'next/image';
-import { useEffect, useRef } from 'react';
-import { urlFor } from '@/sanity/lib/image';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionHeader from './sectionHeader';
-import Link from 'next/link';
 import MainButton from './mainButton';
 import ProjectCard from './projectCard';
 import ProjectAnimatioin from './animations/projectsAnimation';

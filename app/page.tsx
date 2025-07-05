@@ -1,11 +1,9 @@
-import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { PORTFOLIO_QUERY } from "@/sanity/queries";
 import { Portfolio } from "@/sanity.types";
 import HeroSection from "@/components/heroSection";
 import { TechSection } from "@/components/techSection";
 import AboutSection from "@/components/aboutSection";
-import AnimatedClients from "@/components/projecstSection";
 import ProjecstSection from "@/components/projecstSection";
 
 export default async function Home() {

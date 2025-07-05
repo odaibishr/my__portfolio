@@ -1,7 +1,5 @@
 
 import { Portfolio } from "@/sanity.types";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
 import AnimatedText from "./animations/animatedText";
 import HeroBanner from "./animations/heroBanner";
 import HeroButton from "./heroButton";
@@ -32,13 +30,12 @@ export default function HeroSection({ data }: {
                 </div>
 
                 {/* <!-- Buttons --> */}
-                
+
                 <HeroButton text={data.heroButtonText ?? "View Projects"} herf="/" />
                 {/* <!-- End Buttons --> */}
 
 
             </div>
         </section>
-
     </>
 }

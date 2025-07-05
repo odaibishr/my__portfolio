@@ -15,18 +15,15 @@ export default function AnimatedText({ text, type, className, duration, stagger,
             // do something after all fonts are loaded
             const split = SplitText.create(textRef.current, {
                 type: "words, chars",
-                wordsClass: "word++",
-
-
+                smartWrap: true,
             });
 
             gsap.from(type == "words" ? split.words : split.chars, {
-                opacity: 0,
+                autoAlpha: 0,
                 y: from,
                 ease: "expo.inOut",
                 duration: duration,
                 stagger: stagger || 0.05,
-
             });
         };
     }, {

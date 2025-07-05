@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -11,13 +11,13 @@ export default function HeroBanner({ heroGreeting }: { heroGreeting: string }) {
     useGSAP(() => {
         // GSAP animation logic here
         gsap.from(ref.current, {
-            opacity: 0,
+            autoAlpha: 0,
             y: 40,
             scale: 0,
             ease: "expo.out",
             duration: 1,
             delay: 0.5,
-        });
+        } );
     }, {
         scope: ref,
     });
