@@ -75,13 +75,13 @@ export const portfolio = defineType({
         }),
 
         defineField({
-            name: "technologiesTitle",
-            title: "Technologies Title",
+            name: "specialityTitle",
+            title: "Speciality Title",
             type: "string",
         }),
         defineField({
-            name: "technologiesSubTitle",
-            title: "Technologies Sub Title",
+            name: "specialitySubTitle",
+            title: "Speciality Sub Title",
             type: "text",
         }),
 

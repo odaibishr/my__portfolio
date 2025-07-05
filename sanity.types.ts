@@ -165,8 +165,8 @@ export type Portfolio = {
     _key: string;
     [internalGroqTypeReferenceTo]?: "project";
   }>;
-  technologiesTitle?: string;
-  technologiesSubTitle?: string;
+  specialityTitle?: string;
+  specialitySubTitle?: string;
   technologies?: Array<{
     _ref: string;
     _type: "reference";
