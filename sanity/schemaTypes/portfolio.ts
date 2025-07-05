@@ -93,6 +93,13 @@ export const portfolio = defineType({
         }),
 
         defineField({
+            name: "faqs",
+            title: "FAQs",
+            type: "array",
+            of: [{ type: "reference", to: { type: "faqs" } }],
+        }),
+
+        defineField({
             name: "contactTitle",
             title: "Contact Title",
             type: "string",
@@ -121,6 +128,8 @@ export const portfolio = defineType({
             title: "Contact Address",
             type: "string",
         }),
+
+
 
         defineField({
             name: "footerText",

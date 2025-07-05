@@ -8,6 +8,9 @@ export const PORTFOLIO_QUERY = `*[_type == "portfolio"]{
     },
     "socialLinks": socialLinks[]->{
         ...
+    },
+    "faqs": faqs[]->{
+        ...
     }
 }`;
 
