@@ -3,37 +3,54 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import { cn } from "@/lib/utils";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 gsap.registerPlugin(SplitText);
 
-export default function AnimatedText({ text, type, className, duration, stagger, from, to }: { text: string; type: string; className?: string; duration: number; stagger?: number; from?: number; to?: number; }) {
-    const textRef = useRef<HTMLDivElement | null>(null);
+export default function AnimatedText({
+  text,
+  type = "chars",
+  className,
+  duration = 1,
+  stagger = 0.05,
+  from = 50,
+  to = 0,
+}: {
+  text: string;
+  type?: "words" | "chars";
+  className?: string;
+  duration?: number;
+  stagger?: number;
+  from?: number;
+  to?: number;
+}) {
+  const textRef = useRef<HTMLDivElement | null>(null);
 
-    useGSAP(() => {
-        document.fonts.onloadingdone = () => {
-            // do something after all fonts are loaded
-            const split = SplitText.create(textRef.current, {
-                type: "words, chars",
-                smartWrap: true,
-            });
+  useGSAP(() => {
+    if (!textRef.current) return;
 
-            gsap.from(type == "words" ? split.words : split.chars, {
-                autoAlpha: 0,
-                y: from,
-                ease: "expo.inOut",
-                duration: duration,
-                stagger: stagger || 0.05,
-            });
-        };
-    }, {
-        scope: textRef,
+    // قم بتقسيم النص باستخدام SplitText
+    const split = new SplitText(textRef.current, {
+      type: type,
     });
 
+    gsap.from(split[type], {
+      y: from,
+      autoAlpha: 0,
+      duration,
+      ease: "expo.inOut",
+      stagger,
+    });
 
-    return (
-        <div ref={textRef} className={cn("animated-text", className)}>
-            {text}
-        </div>
-    );
+    // تنظيف عند الإزالة
+    return () => {
+      split.revert(); // يعيد النص لوضعه الأصلي
+    };
+  }, [text]);
+
+  return (
+    <div ref={textRef} className={cn("animated-text", className)}>
+      {text}
+    </div>
+  );
 }

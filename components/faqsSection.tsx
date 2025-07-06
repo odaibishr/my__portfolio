@@ -19,7 +19,7 @@ export default function FaqsSection({ portfolio }: { portfolio: Portfolio }) {
     return (
         <section
             ref={sectionRef}
-            className="container grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-5 py-10"
+            className="container grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-5 py-13"
         >
             <div className="space-y-5">
                 <SectionHeader
@@ -30,7 +30,7 @@ export default function FaqsSection({ portfolio }: { portfolio: Portfolio }) {
                 />
                 <div className="space-y-5">
                     {portfolio.faqs
-                        ?.filter((_, index) => index < 3)
+                        ?.filter((_, index) => index < 2)
                         .map((faq: any, index: number) => (
                             <FaqItem
                                 key={index}
@@ -46,9 +46,9 @@ export default function FaqsSection({ portfolio }: { portfolio: Portfolio }) {
 
             <div className="space-y-5">
                 {portfolio.faqs
-                    ?.filter((_, index) => index >= 3)
+                    ?.filter((_, index) => index >= 2)
                     .map((faq: any, i: number) => {
-                        const adjustedIndex = i + 3;
+                        const adjustedIndex = i + 2;
                         return (
                             <FaqItem
                                 key={adjustedIndex}

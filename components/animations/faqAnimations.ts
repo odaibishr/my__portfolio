@@ -28,7 +28,8 @@ export function FaqAnimations(faqRefs: React.RefObject<(HTMLDivElement | null)[]
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: triggerRef.current,
-                    start: "20% center",
+                    start: "10% center",
+                    markers: true,
                 },
             }
         );
