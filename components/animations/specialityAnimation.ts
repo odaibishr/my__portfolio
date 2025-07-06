@@ -18,8 +18,12 @@ export function SpecialityAnimation(cardsRef: React.RefObject<(HTMLDivElement | 
             gsap.timeline({
                 scrollTrigger: {
                     trigger: card,
-                    start: "top 85%",
-                    toggleActions: "play none none none",
+                    start: "20% 85%",
+                    end: "center center",
+                    // toggleActions: "play none none none",
+                    scrub: true,
+                    anticipatePin: 1,
+                    markers: true,
                 },
             })
                 .fromTo(
