@@ -167,9 +167,14 @@
 	--tracking-widest: calc(var(--tracking-normal) + 0.1em);
 }
 
-body {
-	/* letter-spacing: var(--tracking-wide); */
-	word-spacing: 2px;
+@layer base {
+	* {
+        @apply border-border select-none md:select-text  outline-ring/50 ;
+    }
+	body {
+        word-spacing: 2px;
+		@apply bg-background text-foreground font-sans;
+    }
 }
 
 @layer utilities {
@@ -180,7 +185,6 @@ body {
 	.card {
 		@apply bg-card text-card-foreground shadow-md rounded-lg p-4;
 	}
-
-	
-
 }
+
+@plugin "daisyui";

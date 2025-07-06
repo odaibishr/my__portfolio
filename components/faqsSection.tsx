@@ -1,66 +1,65 @@
 "use client";
+
 import { Portfolio } from "@/sanity.types";
 import SectionHeader from "./sectionHeader";
-import { useRef, useState } from "react";
-
+import FaqItem from "./faqItem";
+import { useRef } from "react";
+import { FaqAnimations } from "./animations/faqAnimations";
 
 export default function FaqsSection({ portfolio }: { portfolio: Portfolio }) {
     const sectionRef = useRef<HTMLDivElement>(null);
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const faqRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    const toggleAccordion = (index: number) => {
-        setActiveIndex(activeIndex === index ? null : index);
+    const registerRef = (el: HTMLDivElement | null, index: number) => {
+        faqRefs.current[index] = el;
     };
 
+    FaqAnimations(faqRefs, sectionRef);
+
     return (
-        <section ref={sectionRef} className="container mx-auto py-10">
-            <SectionHeader
-                title={portfolio.faqsTitle ?? ""}
-                subtitle={portfolio.faqsSubTitle ?? ""}
-                triggerRef={sectionRef}
-                heading="FAQs"
-            />
-
-            <div id="accordion" className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
-                {portfolio.faqs?.map((faq: any, index: number) => (
-                    <div key={index}>
-                        <h2>
-                            <button
-                                type="button"
-                                className="flex items-center justify-between w-full p-5 font-medium text-gray-500 border-t border-x border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                                onClick={() => toggleAccordion(index)}
-                                aria-expanded={activeIndex === index}
-                                aria-controls={`accordion-body-${index}`}
-                            >
-                                <span>{faq.question}</span>
-                                <svg
-                                    className={`w-3 h-3 transform ${activeIndex === index ? 'rotate-180' : ''}`}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 10 6"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M9 5 5 1 1 5"
-                                    />
-                                </svg>
-                            </button>
-                        </h2>
-                        <div
-                            id={`accordion-body-${index}`}
-                            className={`p-5 border-b border-x rounded-b-2xl border-gray-200 dark:border-gray-700 ${activeIndex !== index ? 'hidden' : ''}`}
-                        >
-                            <p className="mb-2 text-gray-500 dark:text-gray-400">{faq.answer}</p>
-                        </div>
-                    </div>
-
-                 
-                ))}
+        <section
+            ref={sectionRef}
+            className="container grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-5 py-10"
+        >
+            <div className="space-y-5">
+                <SectionHeader
+                    title={portfolio.faqsTitle ?? ""}
+                    subtitle={portfolio.faqsSubTitle ?? ""}
+                    triggerRef={sectionRef}
+                    heading="FAQs"
+                />
+                <div className="space-y-5">
+                    {portfolio.faqs
+                        ?.filter((_, index) => index < 3)
+                        .map((faq: any, index: number) => (
+                            <FaqItem
+                                key={index}
+                                index={index}
+                                question={faq.question}
+                                answer={faq.answer}
+                                registerRef={registerRef}
+                                defaultChecked={index === 0}
+                            />
+                        ))}
+                </div>
             </div>
 
+            <div className="space-y-5">
+                {portfolio.faqs
+                    ?.filter((_, index) => index >= 3)
+                    .map((faq: any, i: number) => {
+                        const adjustedIndex = i + 3;
+                        return (
+                            <FaqItem
+                                key={adjustedIndex}
+                                index={adjustedIndex}
+                                question={faq.question}
+                                answer={faq.answer}
+                                registerRef={registerRef}
+                            />
+                        );
+                    })}
+            </div>
         </section>
     );
 }
