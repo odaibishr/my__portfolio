@@ -29,7 +29,6 @@ export default function AnimatedText({
   useGSAP(() => {
     if (!textRef.current) return;
 
-    // قم بتقسيم النص باستخدام SplitText
     const split = new SplitText(textRef.current, {
       type: type,
     });
@@ -42,9 +41,8 @@ export default function AnimatedText({
       stagger,
     });
 
-    // تنظيف عند الإزالة
     return () => {
-      split.revert(); // يعيد النص لوضعه الأصلي
+      split.revert();
     };
   }, [text]);
 
