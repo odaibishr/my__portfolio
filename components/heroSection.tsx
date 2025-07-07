@@ -26,7 +26,7 @@ export default function HeroSection({ data }: {
                 {/* <!-- End Title --> */}
 
                 <div className="mt-5 max-w-3xl text-center mx-auto">
-                    <AnimatedText type="chars" text={data.heroSubHeader ?? ""} duration={0.001} from={2} to={6} className="text-lg text-muted-foreground" />
+                    <AnimatedText type="chars" text={data.heroSubHeader ?? ""} duration={0.001} from={2} className="text-lg text-muted-foreground" />
                 </div>
 
                 {/* <!-- Buttons --> */}

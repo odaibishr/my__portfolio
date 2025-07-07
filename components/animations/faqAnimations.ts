@@ -29,7 +29,6 @@ export function FaqAnimations(faqRefs: React.RefObject<(HTMLDivElement | null)[]
                 scrollTrigger: {
                     trigger: triggerRef.current,
                     start: "10% center",
-                    markers: true,
                 },
             }
         );

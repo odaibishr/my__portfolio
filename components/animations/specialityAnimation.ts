@@ -23,7 +23,6 @@ export function SpecialityAnimation(cardsRef: React.RefObject<(HTMLDivElement | 
                     // toggleActions: "play none none none",
                     scrub: true,
                     anticipatePin: 1,
-                    markers: true,
                 },
             })
                 .fromTo(
