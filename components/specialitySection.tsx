@@ -2,9 +2,7 @@
 
 import SectionHeader from "./sectionHeader";
 import { useRef } from "react";
-import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SpecialityCard from "./SpecialityCard";

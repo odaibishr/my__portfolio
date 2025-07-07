@@ -17,7 +17,7 @@ export function horizontalLoop(
 ) {
     const itemArray = Array.from(items) as HTMLDivElement[];
     config = config || {};
-    let tl = gsap.timeline({
+    const tl = gsap.timeline({
         repeat: config.repeat ?? -1,
         paused: config.paused ?? false,
         defaults: { ease: "none" },
