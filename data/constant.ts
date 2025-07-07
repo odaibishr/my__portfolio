@@ -11,7 +11,7 @@ export type Skill = {
     image: string;
 };
 
-export type Faqs = {
+export type Faq = {
     question: string;
     answer: string;
 };

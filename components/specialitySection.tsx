@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SpecialityCard from "./SpecialityCard";
 import { SpecialityAnimation } from "./animations/specialityAnimation";
+import { Technology } from "@/sanity.types";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +20,7 @@ export default function SpecialitySection({
 }: {
     titel: string;
     subtile: string;
-    technologies: any[];
+    technologies: Technology[];
 }) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -37,12 +38,12 @@ export default function SpecialitySection({
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-12">
-                {technologies.map((technology: any, index: number) => (
+                {technologies.map((technology: Technology, index: number) => (
                     <SpecialityCard
                         key={index}
                         name={technology.name}
-                        description={technology.description}
-                        image={technology.image}
+                        description={technology.description ?? ""}
+                        image={technology.image ? urlFor(technology.image).url() : ""}
                         innerRef={(el) => (cardsRef.current[index] = el)}
                     />
                 ))}

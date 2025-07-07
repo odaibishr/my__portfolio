@@ -1,13 +1,9 @@
 'use client';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
+import { Project } from '@/sanity.types';
 
-type Project = {
-    _id: string;
-    title: string;
-    description: string;
-    prjectImage?: any;
-};
+
 
 export default function ProjectCard({ project, innerRef }: { project: Project; innerRef?: (el: HTMLDivElement | null) => void }) {
     return (
@@ -19,7 +15,7 @@ export default function ProjectCard({ project, innerRef }: { project: Project; i
                 {project.prjectImage ? (
                     <Image
                         src={urlFor(project.prjectImage).url()}
-                        alt={project.title}
+                        alt={project.title ?? ""}
                         fill
                         priority
                         className="object-cover rounded-3xl w-full h-80 transition-transform duration-700 group-hover:scale-101 group-hover:shadow-3xl"
@@ -27,7 +23,7 @@ export default function ProjectCard({ project, innerRef }: { project: Project; i
                     />
                 ) : (
                     <div className="w-full h-80 flex items-center justify-center bg-muted text-muted-foreground text-sm">
-                        No Image
+                        No Image    
                     </div>
                 )}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-101 rounded-3xl" />
@@ -35,10 +31,10 @@ export default function ProjectCard({ project, innerRef }: { project: Project; i
 
             <div className="p-6">
                 <h3 className="text-2xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-                    {project.title}
+                    {project.title ?? ""}
                 </h3>
                 <p className="text-muted-foreground text-sm line-clamp-3">
-                    {project.description}
+                    {project.description ?? ""}
                 </p>
             </div>
         </div>

@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import { cn } from "@/lib/utils";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 gsap.registerPlugin(SplitText);
 
@@ -14,7 +14,6 @@ export default function AnimatedText({
   duration = 1,
   stagger = 0.05,
   from = 50,
-  to = 0,
 }: {
   text: string;
   type?: "words" | "chars";
@@ -22,7 +21,6 @@ export default function AnimatedText({
   duration?: number;
   stagger?: number;
   from?: number;
-  to?: number;
 }) {
   const textRef = useRef<HTMLDivElement | null>(null);
 

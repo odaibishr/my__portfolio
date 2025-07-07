@@ -4,7 +4,7 @@ import { urlFor } from "@/sanity/lib/image";
 type SpecialityCardProps = {
     name: string;
     description: string;
-    image: any;
+    image: string;
     innerRef?: (el: HTMLDivElement | null) => void;
 }
 

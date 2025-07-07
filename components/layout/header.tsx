@@ -6,10 +6,11 @@ import { usePathname } from "next/navigation";
 import ThemeSwitcher from "../ThemeSwitcher";
 import Image from "next/image";
 
-const usesPathname = () => {
+const useCurrentPathname = () => {
     const pathname = usePathname();
     return pathname;
 }
+
 const Links = [
     {
         href: "/",
@@ -30,9 +31,9 @@ const Links = [
 ];
 
 export default function Header() {
-    const pathname = usesPathname();
+    const pathname = useCurrentPathname();
     return (
-        <header className={cn("fixed bg-background border-b border-accent top-0 z-50  w-full", (pathname.includes('studio') ? 'hidden' : ''))}>
+        <header className={cn("fixed bg-background border-b border-accent top-0 z-50 w-full", (pathname.includes('studio') ? 'hidden' : ''))}>
             <nav className="pt-3 container flex items-center justify-between">
                 <Link href="/" className="text-lg font-bold">
                     <Image src="/logo.png" alt="Logo" width={60} height={60} className="" priority />

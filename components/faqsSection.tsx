@@ -5,8 +5,10 @@ import SectionHeader from "./sectionHeader";
 import FaqItem from "./faqItem";
 import { useRef } from "react";
 import { FaqAnimations } from "./animations/faqAnimations";
+import { Faq } from "@/data/constant";
 
-export default function FaqsSection({ portfolio }: { portfolio: Portfolio }) {
+export default function FaqsSection({ portfolio, faqs }: { portfolio: Portfolio, faqs: Faq[] }) {
+    
     const sectionRef = useRef<HTMLDivElement>(null);
     const faqRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -29,9 +31,9 @@ export default function FaqsSection({ portfolio }: { portfolio: Portfolio }) {
                     heading="FAQs"
                 />
                 <div className="space-y-5">
-                    {portfolio.faqs
+                    {faqs
                         ?.filter((_, index) => index < 2)
-                        .map((faq: any, index: number) => (
+                        .map((faq: Faq, index: number) => (
                             <FaqItem
                                 key={index}
                                 index={index}
@@ -45,9 +47,9 @@ export default function FaqsSection({ portfolio }: { portfolio: Portfolio }) {
             </div>
 
             <div className="space-y-5">
-                {portfolio.faqs
+                {faqs
                     ?.filter((_, index) => index >= 2)
-                    .map((faq: any, i: number) => {
+                    .map((faq: Faq, i: number) => {
                         const adjustedIndex = i + 2;
                         return (
                             <FaqItem
