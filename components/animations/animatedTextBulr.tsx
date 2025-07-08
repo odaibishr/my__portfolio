@@ -1,9 +1,10 @@
 'use client';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { useEffect, useRef } from 'react';
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 type AnimatedTextProps = {
     text: string;
@@ -48,7 +49,7 @@ const AnimatedTextBlur = ({ text, triggerRef, className }: AnimatedTextProps): R
 
             return () => ctx.revert();
         }
-    }, []);
+    }, [triggerRef]);
 
     return (
         <div className={className} ref={textRef}>
