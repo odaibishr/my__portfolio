@@ -1,8 +1,8 @@
 import { client } from "@/sanity/lib/client";
 import { SKILLS_QUERY } from "@/sanity/queries";
-import InfiniteSlider from "./animations/infiniteSlider";
 import { Skill } from "@/data/constant";
-
+import { InfiniteSlider } from '@/components/motion-primitives/infinite-slider';
+import SkillCard from "./skillCard";
 
 
 
@@ -15,8 +15,12 @@ export async function TechSection() {
 
     return (
         <section className="">
-            <InfiniteSlider skills={skills} isReverse={true} />
-            <InfiniteSlider skills={skills} isReverse={false} />
+            <InfiniteSlider className="py-4" direction="horizontal" reverse={true} children={[...skills, ...skills, ...skills].map((skill, i) => (
+                <SkillCard key={i} skill={skill} />
+            ))} />
+            <InfiniteSlider className="py-4" direction="horizontal" reverse={false} children={[...skills, ...skills, ...skills].map((skill, i) => (
+                <SkillCard key={i} skill={skill} />
+            ))} />
         </section>
     );
 }
