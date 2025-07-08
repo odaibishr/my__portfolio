@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import ThemeProvider from "@/providers/themeProvider";
+import MobileNavBar from "@/components/mobileNavBar";
 
 const outfit = Outfit({
   variable: "--font--outfit",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           {children}
+          <MobileNavBar />
         </ThemeProvider>
       </body>
     </html>
