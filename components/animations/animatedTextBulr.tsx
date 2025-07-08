@@ -1,7 +1,9 @@
 'use client';
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+
+gsap.registerPlugin(SplitText);
 
 type AnimatedTextProps = {
     text: string;
@@ -11,7 +13,7 @@ type AnimatedTextProps = {
 
 const AnimatedTextBlur = ({ text, triggerRef, className }: AnimatedTextProps): React.ReactElement => {
     const textRef = useRef<HTMLDivElement | null>(null);
-    useLayoutEffect(() => {
+    useEffect(() => {
         document.fonts.onloadingdone = () => {
             const ctx = gsap.context(() => {
                 const split = SplitText.create(textRef.current, {
