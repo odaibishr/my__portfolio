@@ -17,7 +17,6 @@ export default function CertificatesSection({ header, subHeader }: { header: str
         fetchDataAsync();
     }, []);
 
-    const newLocal = "_blank";
     return (
         <section className="container mx-auto">
             <SectionHeader title={header} subtitle={subHeader} triggerRef={useRef<HTMLDivElement>(null)} heading="certificates" />

@@ -17,20 +17,20 @@ export default function SectionHeader({ title, subtitle, triggerRef, heading }: 
     useGSAP(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: triggerRef?.current,
+                trigger: triggerRef?.current || undefined,
                 start: 'top 80%',
                 toggleActions: 'play none none reverse',
             },
         });
 
-        tl.from(triggerRef?.current!, {
+        tl.from(triggerRef?.current || [], {
             opacity: 0,
             y: 50,
             duration: 1,
             ease: 'power4.out',
         })
             .from(
-                triggerRef?.current ? triggerRef?.current.querySelectorAll('.fade-item') : [],
+                triggerRef?.current ? triggerRef.current.querySelectorAll('.fade-item') : [],
                 {
                     opacity: 0,
                     y: 30,
