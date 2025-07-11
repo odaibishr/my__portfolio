@@ -20,7 +20,7 @@ export default function ContactSection() {
                     <p className="text-foreground">Get in touch</p>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-6 contact-title">
-                    Let's connect
+                    Let&apos;s connect
                 </h2>
                 <p className="text-muted-foreground mt-4 md:text-xl text-center max-w-[600px] contact-subtext">
                     I'm always open to discussing new projects, <br /> so feel free to reach out to me.

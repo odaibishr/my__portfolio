@@ -1,7 +1,6 @@
 'use client';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function ContactAnimation({ sectionRef, containerRef }: { sectionRef: React.RefObject<HTMLDivElement | null>, containerRef: React.RefObject<HTMLDivElement | null> }) {
     useGSAP(() => {
