@@ -15,11 +15,6 @@ export async function TechSection() {
 
     return (
         <section className="">
-            <InfiniteSlider className="py-4" direction="horizontal" reverse={true}>
-                {[...skills, ...skills, ...skills].map((skill, i) => (
-                    <SkillCard key={i} skill={skill} />
-                ))}
-            </InfiniteSlider>
             <InfiniteSlider className="py-4" direction="horizontal" reverse={false}>
                 {[...skills, ...skills, ...skills].map((skill, i) => (
                     <SkillCard key={i} skill={skill} />
