@@ -13,7 +13,7 @@ export default function ContactSection() {
     return (
         <section
             ref={sectionRef}
-            className="container mx-auto py-8 px-4 mb-20"
+            className="container mx-auto py-8 px-4"
         >
             <div ref={containerRef} className=" flex flex-col items-center justify-center bg-primary/10 rounded-2xl border border-border p-10">
                 <div className="py-2 px-6 bg-primary/20 rounded-full contact-tag">

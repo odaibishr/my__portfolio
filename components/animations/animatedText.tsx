@@ -21,6 +21,7 @@ export default function AnimatedText({
   duration?: number;
   stagger?: number;
   from?: number;
+
 }) {
   const textRef = useRef<HTMLDivElement | null>(null);
 
@@ -29,6 +30,7 @@ export default function AnimatedText({
 
     const split = new SplitText(textRef.current, {
       type: type,
+      smartWrap: true,
     });
 
     gsap.from(split[type], {
