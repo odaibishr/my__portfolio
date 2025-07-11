@@ -3,36 +3,35 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Asterisk } from 'lucide-react';
-import Image from 'next/image';
+import { useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 type sectionHeader = {
     title: string;
     subtitle: string;
-    triggerRef: React.RefObject<HTMLDivElement | null>;
+    triggerRef?: React.RefObject<HTMLDivElement | null>;
     heading: string,
 };
 
 export default function SectionHeader({ title, subtitle, triggerRef, heading }: sectionHeader) {
-
     useGSAP(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: triggerRef.current,
+                trigger: triggerRef?.current,
                 start: 'top 80%',
                 toggleActions: 'play none none reverse',
             },
         });
 
-        tl.from(triggerRef.current, {
+        tl.from(triggerRef?.current!, {
             opacity: 0,
             y: 50,
             duration: 1,
             ease: 'power4.out',
         })
             .from(
-                triggerRef.current ? triggerRef.current.querySelectorAll('.fade-item') : [],
+                triggerRef?.current ? triggerRef?.current.querySelectorAll('.fade-item') : [],
                 {
                     opacity: 0,
                     y: 30,

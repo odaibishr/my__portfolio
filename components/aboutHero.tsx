@@ -85,6 +85,7 @@ export default function AboutHero({
                         alt={header!}
                         width={400}
                         height={400}
+                        priority
                         className="object-cover rounded-full md:w-[500px] md:h-[500px] w-[300px] h-[300px] border-2 border-border shadow-xl transition-all duration-700"
                     />
                 </div>
