@@ -27,22 +27,23 @@ export default function AnimatedText({
 
   useGSAP(() => {
     if (!textRef.current) return;
+    document.fonts.onloadingdone = () => {
+      const split = new SplitText(textRef.current, {
+        type: type,
+        smartWrap: true,
+      });
 
-    const split = new SplitText(textRef.current, {
-      type: type,
-      smartWrap: true,
-    });
+      gsap.from(split[type], {
+        y: from,
+        autoAlpha: 0,
+        duration,
+        ease: "expo.inOut",
+        stagger,
+      });
 
-    gsap.from(split[type], {
-      y: from,
-      autoAlpha: 0,
-      duration,
-      ease: "expo.inOut",
-      stagger,
-    });
-
-    return () => {
-      split.revert();
+      return () => {
+        split.revert();
+      };
     };
   }, [text]);
 
