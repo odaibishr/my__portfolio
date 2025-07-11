@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/header";
 import ThemeProvider from "@/providers/themeProvider";
 import MobileNavBar from "@/components/mobileNavBar";
+import Footer from "@/components/layout/footer";
 
 const outfit = Outfit({
   variable: "--font--outfit",
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Header />
           {children}
           <MobileNavBar />
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>

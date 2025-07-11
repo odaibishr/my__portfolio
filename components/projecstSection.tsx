@@ -15,7 +15,7 @@ export default function ProjectsSection({ portfolio }: { portfolio: Portfolio })
     const projectsRef = useRef<(HTMLDivElement | null)[]>([]);
     const projects = portfolio.projects?.filter((project: any) => project.isFeatured === true) as any[];
 
-
+    console.log(projects);
 
     // GSAP animation for the projects
     ProjectAnimatioin(projectsRef, projects.length);

@@ -7,6 +7,7 @@ import AboutSection from "@/components/aboutSection";
 import ProjecstSection from "@/components/projecstSection";
 import SpecialitySection from "@/components/specialitySection";
 import FaqsSection from "@/components/faqsSection";
+import ContactSection from "@/components/contactSection";
 import { Faq } from "@/data/constant";
 
 export default async function Home() {
@@ -31,6 +32,7 @@ export default async function Home() {
       <ProjecstSection portfolio={portfolio} />
       <SpecialitySection titel={portfolio.specialityTitle ?? ""} subtile={portfolio.specialitySubTitle ?? ""} technologies={portfolio.technologies as any[]}/>
       <FaqsSection portfolio={portfolio} faqs={faqsData}/>
+      <ContactSection/>
     </>
   );
 }
