@@ -68,5 +68,30 @@ export const about = defineType({
       title: "Contact me text",
       type: "string",
     }),
+
+    defineField({
+      name: "faqsHeading",
+      title: "FAQs Heading",
+      type: "string",
+    }),
+
+    defineField({
+      name: "faqsTitle",
+      title: "FAQs Title",
+      type: "string",
+    }),
+
+    defineField({
+      name: "faqsSubTitle",
+      title: "FAQs Subtitle",
+      type: "string",
+    }),
+
+    defineField({
+      name: "faqsList",
+      title: "FAQs List",
+      type: "array",
+      of: [{ type: "reference", to: { type: "faqs" } }],
+    }),
   ],
 });

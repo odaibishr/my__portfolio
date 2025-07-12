@@ -31,7 +31,7 @@ export default async function Home() {
       <AboutSection title={portfolio.aboutTitle ?? ""} subtitle={portfolio.aboutSubTitle?? ""} />
       <ProjecstSection portfolio={portfolio} />
       <SpecialitySection titel={portfolio.specialityTitle ?? ""} subtile={portfolio.specialitySubTitle ?? ""} technologies={portfolio.technologies as any[]}/>
-      <FaqsSection portfolio={portfolio} faqs={faqsData}/>
+      <FaqsSection heading="FAQs" title={portfolio.faqsTitle ?? ""} subtitle={portfolio.faqsSubTitle ?? ""} faqs={faqsData}/>
       <ContactSection/>
     </>
   );

@@ -1,13 +1,12 @@
 "use client";
 
-import { Portfolio } from "@/sanity.types";
 import SectionHeader from "./sectionHeader";
 import FaqItem from "./faqItem";
 import { useRef } from "react";
 import { FaqAnimations } from "./animations/faqAnimations";
 import { Faq } from "@/data/constant";
 
-export default function FaqsSection({ portfolio, faqs }: { portfolio: Portfolio, faqs: Faq[] }) {
+export default function FaqsSection({ heading, title, subtitle, faqs }: { heading: string, title: string, subtitle: string, faqs: Faq[] }) {
     
     const sectionRef = useRef<HTMLDivElement>(null);
     const faqRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -25,10 +24,10 @@ export default function FaqsSection({ portfolio, faqs }: { portfolio: Portfolio,
         >
             <div className="space-y-5">
                 <SectionHeader
-                    title={portfolio.faqsTitle ?? ""}
-                    subtitle={portfolio.faqsSubTitle ?? ""}
+                    title={title}
+                    subtitle={subtitle}
                     triggerRef={sectionRef}
-                    heading="FAQs"
+                    heading={heading}
                 />
                 <div className="space-y-5">
                     {faqs

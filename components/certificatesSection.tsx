@@ -28,6 +28,7 @@ export default function CertificatesSection({ header, subHeader }: { header: str
                     <CertificateCard key={index} certificate={certificate} />
                 ))}
             </div>
+            
         </section>
 
     );
