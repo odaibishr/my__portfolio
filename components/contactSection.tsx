@@ -22,8 +22,8 @@ export default function ContactSection() {
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-6 contact-title">
                     Let&apos;s connect
                 </h2>
-                <p className="text-muted-foreground mt-4 md:text-xl text-center max-w-[600px] contact-subtext">
-                    I&apos;m always open to discussing new projects, <br /> so feel free to reach out to me.
+                <p className="text-muted-foreground mt-4 md:text-xl text-center max-w-[500px] contact-subtext">
+                    I&apos;m always open to discussing new projects, so feel free to reach out to me.
                 </p>
                 <div className="flex items-center justify-center gap-4 mt-6 contact-button">
                     <MainButton text="Contact me" href="/contact" />

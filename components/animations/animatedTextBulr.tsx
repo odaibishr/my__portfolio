@@ -15,7 +15,7 @@ type AnimatedTextProps = {
 const AnimatedTextBlur = ({ text, triggerRef, className }: AnimatedTextProps): React.ReactElement => {
     const textRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
-        document.fonts.onloadingdone = () => {
+        document.fonts.ready.then(() => {
             const ctx = gsap.context(() => {
                 const split = SplitText.create(textRef.current, {
                     type: 'words',
@@ -48,7 +48,7 @@ const AnimatedTextBlur = ({ text, triggerRef, className }: AnimatedTextProps): R
             }, triggerRef);
 
             return () => ctx.revert();
-        }
+        });
     }, [triggerRef]);
 
     return (

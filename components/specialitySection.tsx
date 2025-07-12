@@ -27,7 +27,7 @@ export default function SpecialitySection({
     SpecialityAnimation(cardsRef);
 
     return (
-        <section ref={sectionRef} className="container mx-auto py-10">
+        <section ref={sectionRef} className="container mx-auto pt-10">
             <SectionHeader
                 title={titel}
                 subtitle={subtile}
