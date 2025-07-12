@@ -4,6 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { CERTIFICATES_QUERY } from "@/sanity/queries";
 import SectionHeader from "./sectionHeader";
 import { useRef, useEffect, useState } from "react";
+import CertificateCard from "./certificateCard";
 
 export default function CertificatesSection({ header, subHeader }: { header: string, subHeader: string }) {
     const [certificates, setCertificates] = useState<Certificate[]>([]);
@@ -15,22 +16,19 @@ export default function CertificatesSection({ header, subHeader }: { header: str
             const certificates = await client.fetch(CERTIFICATES_QUERY);
             setCertificates(certificates);
         };
+
         fetchDataAsync();
     }, []);
 
     return (
-        <section className="container mx-auto">
+        <section className="container mx-auto py-16 md:py-10">
             <SectionHeader title={header} subtitle={subHeader} triggerRef={sectionRef} heading="certificates" />
-            <div className="flex mt-10 overflow-hidden gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-10 md:gap-15">
                 {certificates.map((certificate: Certificate, index: number) => (
-                    <div key={index} className="flex-1 py-5 px-4 rounded-2xl border border-border shadow-lg">
-                        <h2 className="text-xl font-bold text-foreground">{certificate.title}</h2>
-                        <p className="text-muted-foreground line-clamp-2 mt-2 text-sm md:w-[400px] fade-item">
-                            {certificate.description}
-                        </p>
-                    </div>
+                    <CertificateCard key={index} certificate={certificate} />
                 ))}
             </div>
         </section>
+
     );
 }
