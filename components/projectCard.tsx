@@ -23,7 +23,7 @@ export default function ProjectCard({ project, innerRef }: { project: Project; i
                     />
                 ) : (
                     <div className="w-full h-80 flex items-center justify-center bg-muted text-muted-foreground text-sm">
-                        No Image    
+                        No Image
                     </div>
                 )}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-101 rounded-3xl" />

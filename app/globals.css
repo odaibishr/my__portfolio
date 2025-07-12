@@ -169,12 +169,12 @@
 
 @layer base {
 	* {
-        @apply border-border select-none md:select-text  outline-ring/50 ;
-    }
+		@apply border-border select-none md:select-text  outline-ring/50;
+	}
 	body {
-        word-spacing: 2px;
+		word-spacing: 2px;
 		@apply bg-background text-foreground font-sans;
-    }
+	}
 }
 
 @layer utilities {

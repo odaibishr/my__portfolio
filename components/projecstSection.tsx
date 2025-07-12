@@ -40,7 +40,7 @@ export default function ProjectsSection({ portfolio }: { portfolio: Portfolio })
                         ))}
                     </div>
                     <div className="text-center">
-                        <MainButton text="View All Works" href="/studio" />
+                        <MainButton text="View All Works" href="/projects" />
                     </div>
                 </>
             )}
