@@ -5,6 +5,8 @@ import { urlFor } from "@/sanity/lib/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
+import TitleAnimation from "./animations/titleAnimation";
+import SubTitleAnimation from "./animations/subTitleAnimation";
 
 gsap.registerPlugin(SplitText);
 
@@ -17,57 +19,36 @@ export default function AboutHero({
     subHeader: string;
     image: string;
 }) {
+    const sectionRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
     const headerRef = useRef<HTMLHeadingElement>(null);
     const subHeaderRef = useRef<HTMLParagraphElement>(null);
 
+    TitleAnimation({
+        sectionRef,
+        textRef: headerRef,
+        duration: 0.6,
+        from: 50,
+        stagger: 0.06,
+        to: 0,
+    });
+
+
+    SubTitleAnimation({
+        sectionRef,
+        textRef: subHeaderRef,
+        duration: 0.6,
+    });
+
     useEffect(() => {
         const ctx = gsap.context(() => {
-            document.fonts.onloadingdone = () => {
-                gsap.from(imageRef.current, {
-                    autoAlpha: 0,
-                    scale: 0.8,
-                    x: -100,
-                    duration: 1.2,
-                    ease: "power3.out",
-                });
-
-                const headerSplit = new SplitText(headerRef.current!, {
-                    type: "words",
-                });
-
-                gsap.set(headerSplit.words, {
-                    autoAlpha: 0,
-                    y: 40,
-                    rotateX: 90,
-                    filter: "blur(6px)",
-                    transformPerspective: 1000,
-                    transformOrigin: "center",
-                });
-
-                gsap.to(headerSplit.words, {
-                    autoAlpha: 1,
-                    y: 0,
-                    rotateX: 0,
-                    filter: "blur(0px)",
-                    duration: 0.6,
-                    stagger: 0.06,
-                    ease: "back.out(1.7)",
-                });
-
-                gsap.set(subHeaderRef.current, {
-                    clipPath: "inset(0% 0% 100% 0%)",
-                    autoAlpha: 0,
-                });
-
-                gsap.to(subHeaderRef.current, {
-                    clipPath: "inset(0% 0% 0% 0%)",
-                    autoAlpha: 1,
-                    duration: 0.6,
-                    ease: "power4.out",
-                    delay: 0.4,
-                });
-            };
+            gsap.from(imageRef.current, {
+                autoAlpha: 0,
+                scale: 0.8,
+                x: -100,
+                duration: 1.2,
+                ease: "power3.out",
+            });
 
         }, []);
 

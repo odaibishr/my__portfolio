@@ -1,15 +1,33 @@
-
+"use client";
 import { Portfolio } from "@/sanity.types";
-import AnimatedText from "./animations/animatedText";
 import HeroBanner from "./animations/heroBanner";
 import HeroButton from "./heroButton";
+import { useRef } from "react";
+import TitleAnimation from "./animations/titleAnimation";
+import SubTitleAnimation from "./animations/subTitleAnimation";
 
 export default function HeroSection({ data }: {
     data: Portfolio,
 }) {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const headerRef = useRef<HTMLHeadingElement>(null);
+    const subHeaderRef = useRef<HTMLParagraphElement>(null);
+
+    TitleAnimation({
+        sectionRef,
+        textRef: headerRef,
+        duration: 0.6,
+        from: 50,
+        stagger: 0.06,
+        to: 0,
+    });
 
 
-
+    SubTitleAnimation({
+        sectionRef,
+        textRef: subHeaderRef,
+        duration: 0.6,
+    });
 
     return <>
         <section className="container mx-auto flex flex-col items-center justify-center h-screen">
@@ -21,12 +39,12 @@ export default function HeroSection({ data }: {
 
                 {/* <!-- Title --> */}
                 <div className="text-center mt-10">
-                    <AnimatedText type="words" text={data.heroHeader ?? ""} stagger={0.05} duration={1} from={-50} className="subtitle block font-bold text-foreground text-4xl md:text-5xl lg:text-6xl" />
+                    <h1 ref={headerRef} className="subtitle block font-bold text-foreground text-4xl md:text-5xl lg:text-6xl">{data.heroHeader}</h1>
                 </div>
                 {/* <!-- End Title --> */}
 
                 <div className="mt-5 max-w-3xl text-center mx-auto">
-                    <AnimatedText type="chars" text={data.heroSubHeader ?? ""} duration={0.001} from={2} className="text-lg text-muted-foreground" />
+                    <p ref={subHeaderRef} className="text-lg text-muted-foreground">{data.heroSubHeader}</p>
                 </div>
 
                 {/* <!-- Buttons --> */}

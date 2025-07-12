@@ -1,8 +1,10 @@
 "use client";
-import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Asterisk } from 'lucide-react';
+import { useRef } from 'react';
+import SubTitleAnimation from './animations/subTitleAnimation';
+import TitleAnimation from './animations/titleAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,33 +16,20 @@ type sectionHeader = {
 };
 
 export default function SectionHeader({ title, subtitle, triggerRef, heading }: sectionHeader) {
-    useGSAP(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: triggerRef?.current || undefined,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse',
-            },
-        });
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const subtitleRef = useRef<HTMLParagraphElement>(null);
 
-        tl.from(triggerRef?.current || [], {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            ease: 'power4.out',
-        })
-            .from(
-                triggerRef?.current ? triggerRef.current.querySelectorAll('.fade-item') : [],
-                {
-                    opacity: 0,
-                    y: 30,
-                    stagger: 0.2,
-                    duration: 0.8,
-                    ease: 'power2.out',
-                },
-                '-=0.5'
-            );
-    }, []);
+    TitleAnimation({
+        sectionRef: triggerRef!,
+        textRef: titleRef,
+        duration: 0.6,
+    });
+
+    SubTitleAnimation({
+        sectionRef: triggerRef!,
+        textRef: subtitleRef,
+        duration: 0.6,
+    });
 
     return (
         <div>
@@ -48,10 +37,10 @@ export default function SectionHeader({ title, subtitle, triggerRef, heading }: 
                 <Asterisk className='text-primary' size={30} />
                 <span className="text-lg md:text-xl">{heading}</span>
             </div>
-            <h1 className="font-bold text-2xl md:text-4xl mt-2 fade-item">
+            <h1 className="font-bold text-2xl md:text-4xl mt-2 fade-item" ref={titleRef}>
                 {title}
             </h1>
-            <p className="text-muted-foreground mt-2 text-sm md:w-[400px] fade-item">
+            <p className="text-muted-foreground mt-2 text-sm md:w-[400px] fade-item" ref={subtitleRef}>
                 {subtitle}
             </p>
         </div>

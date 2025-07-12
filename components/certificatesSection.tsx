@@ -7,6 +7,7 @@ import { useRef, useEffect, useState } from "react";
 
 export default function CertificatesSection({ header, subHeader }: { header: string, subHeader: string }) {
     const [certificates, setCertificates] = useState<Certificate[]>([]);
+    const sectionRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         console.log(header, subHeader);
@@ -19,7 +20,7 @@ export default function CertificatesSection({ header, subHeader }: { header: str
 
     return (
         <section className="container mx-auto">
-            <SectionHeader title={header} subtitle={subHeader} triggerRef={useRef<HTMLDivElement>(null)} heading="certificates" />
+            <SectionHeader title={header} subtitle={subHeader} triggerRef={sectionRef} heading="certificates" />
             <div className="flex mt-10 overflow-hidden gap-5">
                 {certificates.map((certificate: Certificate, index: number) => (
                     <div key={index} className="flex-1 py-5 px-4 rounded-2xl border border-border shadow-lg">
