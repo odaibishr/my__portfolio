@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function FaqAnimations(faqRefs: React.RefObject<(HTMLDivElement | null)[]>, triggerRef: React.RefObject<HTMLDivElement>) {
+export function FaqAnimations(faqRefs: React.RefObject<(HTMLDivElement | null)[]>, triggerRef: React.RefObject<HTMLDivElement | null>) {
     useGSAP(() => {
         if (!faqRefs.current || !triggerRef.current) return;
 
