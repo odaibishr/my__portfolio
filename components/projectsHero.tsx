@@ -7,7 +7,7 @@ import ProjectsAnimation from "./animations/projectsAnimation";
 import ContactSection from "./contactSection";
 
 export default function ProjectsHero({ projects }: { projects: Project[] }) {
-    const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+    const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
     ProjectsAnimation(cardsRef, projects.length);
 
