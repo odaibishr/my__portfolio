@@ -14,7 +14,7 @@ export default function ProjectsHero({ projects }: { projects: Project[] }) {
     return (
         <section className="container">
             <SectionHeader title="Projects" subtitle="A selection of projects demonstrating my skills and dedication to delivering effective solutions." triggerRef={useRef<HTMLDivElement>(null)} heading="My Works" />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-12 ">
                 {projects.map((project: Project, index: number) => (
                     <ProjectCard
                         key={index}
