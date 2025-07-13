@@ -57,6 +57,7 @@ export default function AboutHero({
 
     return (
         <section
+            ref={sectionRef}
             className="container mx-auto flex items-center justify-center mb-10"
         >
             <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-5 md:gap-20 mt-10">

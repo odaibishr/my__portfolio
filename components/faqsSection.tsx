@@ -20,7 +20,7 @@ export default function FaqsSection({ heading, title, subtitle, faqs }: { headin
     return (
         <section
             ref={sectionRef}
-            className="container grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-5 py-13"
+            className="container grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-5 py-1"
         >
             <div className="space-y-5">
                 <SectionHeader

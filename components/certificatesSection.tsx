@@ -11,7 +11,6 @@ export default function CertificatesSection({ header, subHeader }: { header: str
     const sectionRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        console.log(header, subHeader);
         const fetchDataAsync = async () => {
             const certificates = await client.fetch(CERTIFICATES_QUERY);
             setCertificates(certificates);
@@ -21,14 +20,16 @@ export default function CertificatesSection({ header, subHeader }: { header: str
     }, []);
 
     return (
-        <section className="container mx-auto py-16 md:py-10">
+        <section
+            ref={sectionRef}
+            className="container mx-auto py-16 md:py-10">
             <SectionHeader title={header} subtitle={subHeader} triggerRef={sectionRef} heading="certificates" />
             <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-10 md:gap-15">
                 {certificates.map((certificate: Certificate, index: number) => (
                     <CertificateCard key={index} certificate={certificate} />
                 ))}
             </div>
-            
+
         </section>
 
     );

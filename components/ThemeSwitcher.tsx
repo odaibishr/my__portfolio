@@ -8,7 +8,7 @@ const ThemeSwitcher = () => {
     useEffect(() => {
         setMount(true);
     }, []);
-    console.log(currentTheme);
+
     return mount ? (
         <div className="flex items-center justify-center">
             <button

@@ -27,7 +27,6 @@ export default function ProjectsAnimation(
                         trigger: el,
                         start: "top 90%",
                         end: "top 30%",
-                        toggleActions: "play none none none",
                         markers: false,
                         scrub: 0.5,
                     }
