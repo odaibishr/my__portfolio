@@ -1,13 +1,12 @@
 "use client";
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function FaqAnimations(faqRefs: React.RefObject<(HTMLDivElement | null)[]>, triggerRef: React.RefObject<HTMLDivElement | null>) {
-    useGSAP(() => {
+    useEffect(() => {
         if (!faqRefs.current || !triggerRef.current) return;
 
         gsap.fromTo(
@@ -29,13 +28,9 @@ export function FaqAnimations(faqRefs: React.RefObject<(HTMLDivElement | null)[]
                 scrollTrigger: {
                     toggleActions: "play none none none",
                     trigger: triggerRef.current,
-                    start: "70% center",
-                    markers: true,
+                    start: "90% center",
                 },
             }
         );
-    }, [
-        faqRefs,
-        triggerRef
-    ]);
+    }, []);
 }

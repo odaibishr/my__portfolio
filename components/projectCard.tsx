@@ -2,13 +2,15 @@
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 import { Project } from '@/sanity.types';
+import Link from 'next/link';
 
 
 
-export default function ProjectCard({ project, innerRef }: { project: Project; innerRef?: (el: HTMLDivElement | null) => void }) {
+export default function ProjectCard({ project, innerRef }: { project: Project; innerRef?: (el: HTMLAnchorElement | null) => void }) {
     return (
-        <div
+        <Link
             ref={innerRef}
+            href={`/projects/${project.slug?.current}`}
             className="group relative rounded-3xl transition-all duration-500"
         >
             <div className="relative h-80 group">
@@ -37,6 +39,6 @@ export default function ProjectCard({ project, innerRef }: { project: Project; i
                     {project.description ?? ""}
                 </p>
             </div>
-        </div>
+        </Link>
     );
 }

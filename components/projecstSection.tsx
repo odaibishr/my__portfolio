@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ProjectsSection({ portfolio }: { portfolio: Portfolio }) {
     const sectionRef = useRef<HTMLDivElement>(null);
-    const projectsRef = useRef<(HTMLDivElement | null)[]>([]);
+    const projectsRef = useRef<(HTMLAnchorElement | null)[]>([]);
     const projects = portfolio.projects?.filter((project: any) => project.isFeatured === true) as any[];
 
 
