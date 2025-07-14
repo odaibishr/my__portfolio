@@ -37,6 +37,8 @@ export type Project = {
     _type: "image";
   };
   technologies?: Array<{
+    image(image: any): unknown;
+    name: string;
     _ref: string;
     _type: "reference";
     _weak?: boolean;

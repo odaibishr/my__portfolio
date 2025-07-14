@@ -45,7 +45,7 @@ export default function AboutHero({
             gsap.from(imageRef.current, {
                 autoAlpha: 0,
                 scale: 0.8,
-                x: -100,
+                x: -10,
                 duration: 1.2,
                 ease: "power3.out",
             });

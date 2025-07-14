@@ -1,11 +1,11 @@
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function SpecialityAnimation(cardsRef: React.RefObject<(HTMLDivElement | null)[]>) {
-    useGSAP(() => {
+    useEffect(() => {
         cardsRef.current?.forEach((card) => {
             if (!card) return;
 
