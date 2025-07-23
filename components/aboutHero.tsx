@@ -7,6 +7,7 @@ import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import TitleAnimation from "./animations/titleAnimation";
 import SubTitleAnimation from "./animations/subTitleAnimation";
+import MainButton from "./mainButton";
 
 gsap.registerPlugin(SplitText);
 
@@ -14,15 +15,18 @@ export default function AboutHero({
     header,
     subHeader,
     image,
+    resumeLink,
 }: {
     header: string;
     subHeader: string;
     image: string;
+    resumeLink: string;
 }) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
     const headerRef = useRef<HTMLHeadingElement>(null);
     const subHeaderRef = useRef<HTMLParagraphElement>(null);
+    const resumeRef = useRef<HTMLDivElement>(null);
 
     TitleAnimation({
         sectionRef,
@@ -47,6 +51,13 @@ export default function AboutHero({
                 scale: 0.8,
                 x: -10,
                 duration: 1.2,
+                ease: "power3.out",
+            });
+
+            gsap.from(resumeRef.current, {
+                autoAlpha: 0,
+                y: 20,
+                duration: 1,
                 ease: "power3.out",
             });
 
@@ -84,6 +95,9 @@ export default function AboutHero({
                     >
                         {subHeader}
                     </p>
+                    <div ref={resumeRef} className="mt-6 flex items-center justify-center md:justify-start">
+                        <MainButton text="View Resume" href={resumeLink} />
+                    </div>
                 </div>
             </div>
         </section>

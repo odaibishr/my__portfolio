@@ -16,7 +16,7 @@ export default async function About() {
     }
     return (
         <div className="pt-20 md:pt-28">
-            <AboutHero header={about.header} subHeader={about.subHeader} image={about.image} />
+            <AboutHero header={about.header} subHeader={about.subHeader} image={about.image} resumeLink={about.resumeLink}/>
             <TechSection />
             <CertificatesSection header={about.certificateTitle} subHeader={about.certificateSubtitle} />
             <FaqsSection heading={about.faqsHeading ?? ""} title={about.faqsTitle ?? ""} subtitle={about.faqsSubTitle ?? ""} faqs={faqsData}/>
