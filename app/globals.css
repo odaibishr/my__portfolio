@@ -178,5 +178,9 @@ body {
 	.card {
 		@apply bg-card text-card-foreground shadow-md rounded-lg p-4;
 	}
+
+	.accordion {
+		@apply bg-card text-card-foreground shadow-md rounded-lg p-4;
+	}
 }
 
