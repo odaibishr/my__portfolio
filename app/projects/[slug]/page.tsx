@@ -33,16 +33,19 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                 <div className="flex flex-col md:flex-row justify-between">
                     <p className="text-xl md:text-2xl font-bold">{project?.title || ""}</p>
                     <div className="mt-4 md:mt-0 flex items-center gap-4">
-                        <MainButton text="View Project" href={`/projects/${project?.slug?.current || ""}`} />
-                        <MainButton text="Source Code" href={`/projects/${project?.slug?.current || ""}`} />
+                        {project?.liveUrl && (
+                            <MainButton text="View Project" href={project?.liveUrl} />
+                        )}
+                        {project?.githubUrl && (
+                            <MainButton text="Source Code" href={project?.githubUrl} />
+                        )}
                     </div>
                 </div>
-                <div>
-                    <p className="mt-4 text-lg font-semibold">Technologies</p>
-                    <div className="flex items-center gap-4 mt-2">
+                <div className="mt-4">
+                    {/* <p className="mt-4 text-lg font-semibold">Technologies</p> */}
+                    <div className="flex flex-wrap items-center gap-2 mt-2">
                         {project?.skills?.map((skill) => (
-                            <div key={skill._key} className="flex items-center gap-2 bg-accent p-2 rounded-full">
-                                
+                            <div key={skill._key} className="flex items-center gap-2 bg-accent py-1 px-4 rounded-full">
                                 <p className="text-sm font-semibold">{skill.title}</p>
                             </div>
                         ))}
