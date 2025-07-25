@@ -44,7 +44,7 @@ export default function MainButton({ text, href }: { text: string; href: string 
         <Link
             href={href}
             ref={btnRef}
-            className="inline-flex rounded-full justify-center items-center gap-x-3 text-center bg-accent-foreground dark:bg-popover px-5 py-2.5 text-sm text-white font-semibold shadow-md"
+            className="inline-flex rounded-full justify-center items-center gap-x-3 text-center bg-secondary dark:bg-primary  px-5 py-2.5 text-sm text-white font-semibold shadow-md"
         >
             {text}
         </Link>

@@ -40,7 +40,7 @@ export default function Header() {
                 </Link>
                 <div className="space-x-5 hidden md:flex">
                     {Links.map((link) => (
-                        <Link key={link.href} href={link.href} className={cn("text-foreground group-hover/nav-item:text-primary block duration-150 hover:text-primary",
+                        <Link key={link.href} href={link.href} className={cn("group-hover/nav-item:text-primary block duration-150 hover:text-primary",
                             pathname === link.href ? "text-primary" : "text-foreground"
                         )}>
                             {link.label}

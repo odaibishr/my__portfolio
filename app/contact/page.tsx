@@ -11,7 +11,7 @@ export default function ContactPage() {
             <div className="flex flex-col md:flex-row gap-5 md:gap-10">
                 <SectionHeader title="Get in touch" subtitle="I'm always open to discussing new projects, so feel free to reach out to me." triggerRef={sectionRef} heading="Contact with me" />
 
-                <div className="container bg-primary/10 rounded-2xl border border-border p-10">
+                <div className="container bg-card rounded-2xl border border-border p-10">
                     <Form action="/api/contact">
                         <div className="flex flex-col md:flex-row md:gap-10">
                             <fieldset className="fieldset w-full md:w-[50%] ">

@@ -23,24 +23,25 @@ const AnimatedTextBlur = ({ text, triggerRef, className }: AnimatedTextProps): R
                 });
 
                 gsap.set(split.words, {
-                    filter: 'blur(0.9px)',
-                    opacity: 0.2,
+                    filter: 'blur(1px)',
+                    autoAlpha: 0.5,
                     y: 0,
                     scale: 1,
+                    duration: 1,
+
                 });
 
                 gsap.to(split.words, {
                     filter: 'blur(0px)',
-                    opacity: 1,
-                    y: -5,
+                    autoAlpha: 1,
+                    y: -10,
                     scale: 1.02,
                     stagger: 0.08,
                     ease: 'power3.out',
-                    duration: 1,
                     scrollTrigger: {
                         trigger: triggerRef.current,
                         start: 'top center',
-                        end: '+=200',
+                        end: '+=300',
                         scrub: 1,
                     },
                 });

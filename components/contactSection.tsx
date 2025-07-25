@@ -15,8 +15,8 @@ export default function ContactSection() {
             ref={sectionRef}
             className="container mx-auto py-8 px-4"
         >
-            <div ref={containerRef} className=" flex flex-col items-center justify-center bg-primary/10 rounded-2xl border border-border p-10">
-                <div className="py-2 px-6 bg-primary/20 rounded-full contact-tag">
+            <div ref={containerRef} className=" flex flex-col items-center justify-center bg-card rounded-2xl border border-border p-10">
+                <div className="py-2 px-6 bg-border rounded-full contact-tag">
                     <p className="text-foreground">Get in touch</p>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-6 contact-title">

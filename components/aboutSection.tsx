@@ -17,13 +17,13 @@ export default function AboutSection({ title, subtitle }: { title: string; subti
     return (
         <div
             ref={sectionRef}
-            className="my-10 relative container mx-auto rounded-2xl  py-32 border border-border bg-primary/10 px-4 text-center max-w-4xl overflow-hidden"
+            className="my-10 relative container mx-auto rounded-2xl  py-32 border border-border bg-card px-4 text-center max-w-4xl overflow-hidden"
         >
             <h1 ref={titleRef} className="text-4xl capitalize font-extrabold text-card-foreground relative z-10 mb-6">
                 {title}
             </h1>
 
-            <AnimatedTextBlur className='text-lg cap leading-relaxed tracking-wide text-foreground relative z-10' text={subtitle} triggerRef={sectionRef} />
+            <AnimatedTextBlur className='text-xl leading-relaxed tracking-wide text-muted-foreground relative z-10' text={subtitle} triggerRef={sectionRef} />
         </div>
     );
 }

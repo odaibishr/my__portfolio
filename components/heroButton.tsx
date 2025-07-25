@@ -40,9 +40,9 @@ export default function HeroButton({ text, herf }: { text: string; herf: string 
 
     return (
         <div ref={ref} className="mt-8 gap-3 flex justify-center">
-            <Link onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href={herf} className="relative inline-flex rounded-full justify-center items-center gap-x-3 text-center bg-accent-foreground dark:bg-popover px-4 py-2.5 text-sm text-white font-semibold shadow-sm hover:bg-primary-600">
+            <Link onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href={herf} className="relative inline-flex rounded-full justify-center items-center gap-x-3 text-center bg-primary px-4 py-2.5 text-sm text-white font-semibold shadow-sm hover:bg-primary-600">
                 {text}
-                <div className="inline-flex items-center justify-center p-2 rounded-full bg-popover-foreground text-secondary">
+                <div className="inline-flex items-center justify-center p-2 rounded-full bg-popover text-secondary">
                     <ArrowUpRight ref={iconRef} className="w-5 h-5" />
                 </div>
                 {/* <div ref={overRef} className="absolute px-4 py-2.5  top-4 right-4 w-[10%]  bg-popover-foreground rounded-full"></div> */}

@@ -8,14 +8,14 @@ export default function SkillCard({ skill }: { skill: Skill }) {
             ? urlFor(skill.image).url()
             : "/images/placeholder.png";
     return (
-        <div className="flex items-center space-x-3  bg-primary/10 dark:bg-accent/20 px-4 py-[5px] rounded-full">
+        <div className="flex items-center space-x-3  bg-card px-4 py-[5px] rounded-full">
             <div className="w-[22px] h-[22px] relative flex-shrink-0">
                 {/* {style = {{width: 32, height: 32, position: "relative", flexShrink: 0 }} } */}
                 <Image
                     src={imageUrl}
                     alt={skill.title}
                     fill
-                    className="object-contain dark:invert-100 size-5"
+                    className="object-contain size-5"
                     sizes="22px"
 
                 />
