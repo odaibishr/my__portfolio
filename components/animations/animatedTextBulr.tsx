@@ -23,7 +23,7 @@ const AnimatedTextBlur = ({ text, triggerRef, className }: AnimatedTextProps): R
                 });
 
                 gsap.set(split.words, {
-                    filter: 'blur(1px)',
+                    filter: 'blur(2px)',
                     autoAlpha: 0.5,
                     y: 0,
                     scale: 1,
@@ -38,6 +38,7 @@ const AnimatedTextBlur = ({ text, triggerRef, className }: AnimatedTextProps): R
                     scale: 1.02,
                     stagger: 0.08,
                     ease: 'power3.out',
+                    duration: 1,
                     scrollTrigger: {
                         trigger: triggerRef.current,
                         start: 'top center',

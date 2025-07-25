@@ -42,7 +42,8 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                     <div className="flex items-center gap-4 mt-2">
                         {project?.skills?.map((skill) => (
                             <div key={skill._key} className="flex items-center gap-2 bg-accent p-2 rounded-full">
-                                {skill.title}
+                                
+                                <p className="text-sm font-semibold">{skill.title}</p>
                             </div>
                         ))}
                     </div>

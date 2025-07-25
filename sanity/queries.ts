@@ -50,11 +50,7 @@ export const SOCIAL_QUERY = `*[_type == "social"]{
 
 export const PROJECTS_DETAIL_QUERY = `*[_type == "project" && slug.current == $slug][0]{
     ...,
-    "technologies": technologies[]->{
-        _id,
-        name,
-        image,
-        icon,
-        description,
+    "skills": skills[]->{
+        ...,
     },
 }`;
