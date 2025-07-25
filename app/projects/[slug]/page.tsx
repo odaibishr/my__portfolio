@@ -40,14 +40,9 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                 <div>
                     <p className="mt-4 text-lg font-semibold">Technologies</p>
                     <div className="flex items-center gap-4 mt-2">
-                        {project?.technologies?.map((technology) => (
-                            <div key={technology._key} className="flex items-center gap-2 bg-accent p-2 rounded-full">
-                                <Image
-                                    src={urlFor(technology.image).url()}
-                                    alt={technology.name || ""}
-                                    width={24}
-                                    height={24}
-                                    className="rounded-full" />
+                        {project?.skills?.map((skill) => (
+                            <div key={skill._key} className="flex items-center gap-2 bg-accent p-2 rounded-full">
+                                {skill.title}
                             </div>
                         ))}
                     </div>

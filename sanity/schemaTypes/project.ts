@@ -46,10 +46,10 @@ export const project = defineType({
             },
         }),
         defineField({
-            name: "technologies",
-            title: "Technologies",
+            name: "skills",
+            title: "Skills",
             type: "array",
-            of: [{ type: "reference", to: { type: "technology" } }],
+            of: [{ type: "reference", to: { type: "skill" } }],
         }),
         defineField({
             name: "githubUrl",
@@ -66,7 +66,6 @@ export const project = defineType({
             title: "Is Featured",
             type: "boolean",
         }),
-        // TODO: Add more fields such as technologies used, categories, etc.
         defineField({
             name: "createdAt",
             title: "Created At",

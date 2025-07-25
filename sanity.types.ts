@@ -36,14 +36,14 @@ export type Project = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  technologies?: Array<{
+  skills?: Array<{
     image(image: any): unknown;
-    name: string;
+    title: string;
     _ref: string;
     _type: "reference";
     _weak?: boolean;
     _key: string;
-    [internalGroqTypeReferenceTo]?: "technology";
+    [internalGroqTypeReferenceTo]?: "skill";
   }>;
   githubUrl?: string;
   liveUrl?: string;
