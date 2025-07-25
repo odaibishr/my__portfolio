@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { cn } from "@/lib/utils";
 import {
     Accordion,
     AccordionItem,
@@ -15,7 +14,7 @@ interface FaqItemProps {
     answer: string;
     index: number;
     registerRef: (el: HTMLDivElement | null, index: number) => void;
-    defaultChecked?: boolean;
+   
 }
 
 export default function FaqItem({
@@ -23,7 +22,6 @@ export default function FaqItem({
     answer,
     index,
     registerRef,
-    defaultChecked = false,
 }: FaqItemProps) {
     const itemRef = useRef<HTMLDivElement | null>(null);
 

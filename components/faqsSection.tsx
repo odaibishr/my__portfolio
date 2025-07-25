@@ -39,7 +39,6 @@ export default function FaqsSection({ heading, title, subtitle, faqs }: { headin
                                 question={faq.question}
                                 answer={faq.answer}
                                 registerRef={registerRef}
-                                defaultChecked={index === 0}
                             />
                         ))}
                 </div>
