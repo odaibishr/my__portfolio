@@ -163,6 +163,11 @@ body {
 		word-spacing: 2px;
 		@apply bg-background text-foreground font-sans;
 	}
+
+	::selection {
+		@apply bg-primary text-primary-foreground;
+	}
+
 }
 
 @layer utilities {
