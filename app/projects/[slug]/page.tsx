@@ -26,7 +26,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                             height={300}
                             src={urlFor(project.prjectImage).url()}
                             alt="Project banner"
-                            className="rounded-2xl"
+                            className="rounded-2xl shadow-lg"
                         />
                     )}
                 </div>
@@ -51,10 +51,19 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                         ))}
                     </div>
                 </div>
-                <h2 className="mt-4 text-lg font-bold">About Project</h2>
-                <p className="text-muted-foreground mt-2 text-sm">{project?.description || ""}</p>
+                <div className="flex flex-col md:flex-row gap-5 md:items-center justify-between">
+                    <div>
+                        <h2 className="mt-4 text-lg font-bold">About Project</h2>
+                        <p className="text-muted-foreground mt-2 text-sm">{project?.description || ""}</p>
+                    </div>
+                    <div className="md:mt-4 flex-1/2 flex items-baseline md:justify-end gap-2">
+                        <h2 className="text-lg font-bold">Role:</h2>
+                        <p>{project?.role || ""}</p>
+                    </div>
+                </div>
 
             </section>
-            <ContactSection /></>
+            <ContactSection />
+        </>
     );
 }

@@ -14,7 +14,7 @@ interface FaqItemProps {
     answer: string;
     index: number;
     registerRef: (el: HTMLDivElement | null, index: number) => void;
-   
+
 }
 
 export default function FaqItem({
@@ -52,7 +52,7 @@ export default function FaqItem({
                     <AccordionTrigger className='w-full cursor-pointer py-0.5 text-left text-zinc-950 dark:text-zinc-50'>
                         <div className='flex items-center'>
                             <ChevronRight className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-expanded:rotate-90 dark:text-zinc-50' />
-                            <div className='ml-2 text-zinc-950 dark:text-zinc-50 font-semibold max-sm:text-sm'>
+                            <div className='ml-2 group-data-expanded:text-primary text-zinc-950 dark:text-zinc-50 font-semibold max-sm:text-sm'>
                                 {question}
                             </div>
                         </div>

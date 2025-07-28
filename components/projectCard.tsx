@@ -13,7 +13,7 @@ export default function ProjectCard({ project, innerRef }: { project: Project; i
             href={`/projects/${project.slug?.current}`}
             className="group relative rounded-3xl transition-all duration-500"
         >
-            <div className="relative h-80 group">
+            <div className="relative h-80 rounded-3xl border border-border">
                 {project.prjectImage ? (
                     <Image
                         src={urlFor(project.prjectImage).url()}
