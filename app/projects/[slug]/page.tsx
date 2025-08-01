@@ -56,10 +56,14 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                         <h2 className="mt-4 text-lg font-bold">About Project</h2>
                         <p className="text-muted-foreground mt-2 text-sm">{project?.description || ""}</p>
                     </div>
-                    <div className="md:mt-4 flex-1/2 flex items-baseline md:justify-end gap-2">
-                        <h2 className="text-lg font-bold">Role:</h2>
-                        <p>{project?.role || ""}</p>
-                    </div>
+                </div>
+                <div className="mt-4 flex items-baseline gap-2">
+                    <h2 className="text-lg font-bold">Role:</h2>
+                    <p>{project?.role || ""}</p>
+                </div>
+                <div className="mt-2 flex items-baseline gap-2">
+                    <h2 className="text-lg font-bold">Client:</h2>
+                    <p>{project?.client || ""}</p>
                 </div>
 
             </section>

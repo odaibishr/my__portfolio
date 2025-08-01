@@ -20,14 +20,14 @@ export default function ProjectCard({ project, innerRef }: { project: Project; i
                         alt={project.title ?? ""}
                         fill
                         priority
-                        className="object-cover rounded-3xl transition-transform duration-700 group-hover:scale-101 group-hover:shadow-3xl"
+                        className="object-cover rounded-3xl transition-transform duration-700 group-hover:scale-100 group-hover:shadow-3xl"
                     />
                 ) : (
                     <div className="w-full h-80 flex items-center justify-center bg-muted text-muted-foreground text-sm">
                         No Image
                     </div>
                 )}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-101 rounded-3xl" />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-100 rounded-3xl" />
             </div>
 
             <div className="p-6">
