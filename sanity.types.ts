@@ -36,14 +36,12 @@ export type Project = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  skills?: Array<{
-    image(image: any): unknown;
-    title: string;
+  technologies?: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
     _key: string;
-    [internalGroqTypeReferenceTo]?: "skill";
+    [internalGroqTypeReferenceTo]?: "technology";
   }>;
   githubUrl?: string;
   liveUrl?: string;
@@ -116,7 +114,7 @@ export type Technology = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name: string;
+  name?: string;
   description?: string;
   icon?: string;
   image?: {
@@ -167,24 +165,14 @@ export type Portfolio = {
     _key: string;
     [internalGroqTypeReferenceTo]?: "project";
   }>;
-  specialityTitle?: string;
-  specialitySubTitle?: string;
+  technologiesTitle?: string;
+  technologiesSubTitle?: string;
   technologies?: Array<{
     _ref: string;
     _type: "reference";
     _weak?: boolean;
     _key: string;
     [internalGroqTypeReferenceTo]?: "technology";
-  }>;
-  faqsHeading?: string;
-  faqsTitle?: string;
-  faqsSubTitle?: string;
-  faqs?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "faqs";
   }>;
   contactTitle?: string;
   contactSubTitle?: string;

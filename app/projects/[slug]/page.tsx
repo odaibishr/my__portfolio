@@ -1,6 +1,5 @@
 import { client } from "@/sanity/lib/client";
 import { PROJECTS_DETAIL_QUERY } from "@/sanity/queries";
-import { Project } from "@/sanity.types";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ArrowLeft } from "lucide-react";
@@ -10,7 +9,7 @@ import ContactSection from "@/components/contact/contactSection";
 
 export default async function ProjectDetails({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const project = await client.fetch<Project>(PROJECTS_DETAIL_QUERY, { slug });
+    const project = await client.fetch<any>(PROJECTS_DETAIL_QUERY, { slug });
 
     return (
         <>
@@ -31,7 +30,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                             />
                         )}
                     </div>
-                    
+
                 </div>
                 <div className="flex flex-col md:flex-row justify-between">
                     <p className="text-xl md:text-2xl font-bold">{project?.title || ""}</p>
@@ -47,7 +46,7 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                 <div className="mt-4">
                     {/* <p className="mt-4 text-lg font-semibold">Technologies</p> */}
                     <div className="flex flex-wrap items-center gap-2 mt-2">
-                        {project?.skills?.map((skill) => (
+                        {project?.skills?.map((skill: any) => (
                             <div key={skill._key} className="flex items-center gap-2 bg-accent py-1 px-4 rounded-full">
                                 <p className="text-sm font-semibold">{skill.title}</p>
                             </div>
@@ -75,12 +74,14 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                 <div className="mt-4 items-baseline">
                     <h2 className="text-lg font-bold">Technologies:</h2>
                     <ul className="flex flex-col gap-2 mt-2 ml-4">
-                        {project?.skills?.map((skill) => (
+                        {project?.skills?.map((skill: any) => (
                             <li key={skill._key} className="list-disc list-inside">
                                 <span className="font-semibold">
-                                    {skill.title}:{" "}
+                                    {skill?.title}:{" "}
                                 </span>
-                                <span className="text-muted-foreground">{skill.description!.slice(skill.title.length, skill.description!.length)}</span>
+                                {skill.description && (
+                                    <span className="text-muted-foreground"> {skill?.description.slice(skill?.title.length)}</span>
+                                )}
                             </li>
                         ))}
                     </ul>

@@ -50,6 +50,7 @@ export const project = defineType({
             title: "Skills",
             type: "array",
             of: [{ type: "reference", to: { type: "skill" } }],
+
         }),
         defineField({
             name: "githubUrl",
