@@ -39,7 +39,7 @@ export default function SpecialitySection({
                 {technologies.map((technology: Technology, index: number) => (
                     <SpecialityCard
                         key={index}
-                        name={technology.name}
+                        name={technology.name ?? ""}
                         description={technology.description ?? ""}
                         image={technology.image ? urlFor(technology.image).url() : ""}
                         innerRef={(el) => (cardsRef.current[index] = el)}
