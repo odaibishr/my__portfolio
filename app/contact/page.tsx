@@ -1,7 +1,7 @@
 'use client';
 import SectionHeader from "@/components/sectionHeader";
 import { useRef } from "react";
-import ContactForm from "@/components/contactForm";
+import ContactForm from "@/components/contact/contactForm";
 
 export default function ContactPage() {
     const sectionRef = useRef<HTMLDivElement>(null);

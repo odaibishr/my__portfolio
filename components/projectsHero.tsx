@@ -4,7 +4,7 @@ import SectionHeader from "./sectionHeader";
 import ProjectCard from "./projectCard";
 import { useRef } from "react";
 import ProjectsAnimation from "./animations/projectsAnimation";
-import ContactSection from "./contactSection";
+import ContactSection from "./contact/contactSection";
 
 export default function ProjectsHero({ projects }: { projects: Project[] }) {
     const cardsRef = useRef<(HTMLAnchorElement | null)[]>([]);

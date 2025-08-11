@@ -32,5 +32,5 @@ export function FaqAnimations(faqRefs: React.RefObject<(HTMLDivElement | null)[]
                 },
             }
         );
-    }, []);
+    }, [faqRefs, triggerRef]);
 }

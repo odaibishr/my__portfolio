@@ -34,5 +34,5 @@ export function SpecialityAnimation(cardsRef: React.RefObject<(HTMLDivElement | 
                 .to(title, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, "-=0.3")
                 .to(desc, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, "-=0.3");
         });
-    }, []);
+    }, [cardsRef]);
 }

@@ -6,7 +6,7 @@ import { TechSection } from "@/components/techSection";
 import AboutSection from "@/components/aboutSection";
 import ProjecstSection from "@/components/projecstSection";
 import SpecialitySection from "@/components/specialitySection";
-import ContactSection from "@/components/contactSection";
+import ContactSection from "@/components/contact/contactSection";
 
 export default async function Home() {
   const portfolioData = await client.fetch<Portfolio[]>(PORTFOLIO_QUERY, {});

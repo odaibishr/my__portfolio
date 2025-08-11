@@ -67,5 +67,5 @@ export default function ProjectsAnimation(
             ctx.revert();
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
-    }, [count]);
+    }, [refs, count]);
 }

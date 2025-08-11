@@ -51,5 +51,5 @@ export default function TitleAnimation({
                 },
             });
         });
-    }, [textRef]);
+    }, [textRef, sectionRef, duration, from, stagger, to]);
 }

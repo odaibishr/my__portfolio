@@ -39,5 +39,5 @@ export default function SubTitleAnimation({
                 },
             });
         });
-    }, [textRef]);
+    }, [textRef, sectionRef, duration]);
 }

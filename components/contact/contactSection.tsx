@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import MainButton from "./mainButton";
-import ContactAnimation from "./animations/contactAnimation";
+import MainButton from "../mainButton";
+import ContactAnimation from "../animations/contactAnimation";
 
 export default function ContactSection() {
     const sectionRef = useRef<HTMLDivElement>(null);

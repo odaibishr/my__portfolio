@@ -14,19 +14,10 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendEmail } from "@/lib/EmailService";
+import { ContactSchema } from "./ContactSchema";
 
 
-const ContactSchema = z.object({
-    name: z.string().min(2, {
-        message: "Name must be at least 2 characters long",
-    }),
-    email: z.string().nonempty({
-        message: "Email is required",
-    }),
-    message: z.string().nonempty({
-        message: "Message is required",
-    }),
-})
+
 
 export default function ContactForm() {
 
@@ -89,7 +80,7 @@ export default function ContactForm() {
                             </FormItem>
                         )}
                     />
-                    <Button type="submit" className="w-full md:w-auto">Submit</Button>
+                    <Button type="submit" className="w-full">Submit</Button>
                 </form>
             </Form>
         </>

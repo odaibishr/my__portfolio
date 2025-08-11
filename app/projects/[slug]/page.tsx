@@ -6,7 +6,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import MainButton from "@/components/mainButton";
-import ContactSection from "@/components/contactSection";
+import ContactSection from "@/components/contact/contactSection";
 
 export default async function ProjectDetails({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -19,16 +19,19 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                     <ArrowLeft size={20} />
                     <p className="text-muted-foreground">Back to projects</p>
                 </Link>
-                <div className="flex items-center justify-center mt-4 mb-4">
-                    {project?.prjectImage && (
-                        <Image
-                            width={1300}
-                            height={300}
-                            src={urlFor(project.prjectImage).url()}
-                            alt="Project banner"
-                            className="rounded-2xl shadow-lg"
-                        />
-                    )}
+                <div className="flex items-start flex-col md:flex-row justify-center gap-5 mt-4 mb-4 ">
+                    <div className="border-2 border-border rounded-2xl">
+                        {project?.prjectImage && (
+                            <Image
+                                width={1300}
+                                height={300}
+                                src={urlFor(project.prjectImage).url()}
+                                alt="Project banner"
+                                className="rounded-2xl"
+                            />
+                        )}
+                    </div>
+                    
                 </div>
                 <div className="flex flex-col md:flex-row justify-between">
                     <p className="text-xl md:text-2xl font-bold">{project?.title || ""}</p>
@@ -54,16 +57,34 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                 <div className="flex flex-col md:flex-row gap-5 md:items-center justify-between">
                     <div>
                         <h2 className="mt-4 text-lg font-bold">About Project</h2>
-                        <p className="text-muted-foreground mt-2 text-sm">{project?.description || ""}</p>
+                        <p className="text-muted-foreground mt-2">{project?.description || ""}</p>
                     </div>
                 </div>
+
+                {/* Role and Client */}
                 <div className="mt-4 flex items-baseline gap-2">
                     <h2 className="text-lg font-bold">Role:</h2>
-                    <p>{project?.role || ""}</p>
+                    <p className="text-muted-foreground">{project?.role || ""}</p>
                 </div>
                 <div className="mt-2 flex items-baseline gap-2">
                     <h2 className="text-lg font-bold">Client:</h2>
-                    <p>{project?.client || ""}</p>
+                    <p className="text-muted-foreground">{project?.client || ""}</p>
+                </div>
+
+                {/* Technologies */}
+                <div className="mt-4 items-baseline">
+                    <h2 className="text-lg font-bold">Technologies:</h2>
+                    <ul className="flex flex-col gap-2 mt-2 ml-4">
+                        {project?.skills?.map((skill) => (
+                            <li key={skill._key} className="list-disc list-inside">
+                                <span className="font-semibold">
+                                    {skill.title}:{" "}
+                                </span>
+                                <span className="text-muted-foreground">{skill.description!.slice(skill.title.length, skill.description!.length)}</span>
+                            </li>
+                        ))}
+                    </ul>
+
                 </div>
 
             </section>
