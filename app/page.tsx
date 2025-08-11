@@ -9,7 +9,7 @@ import SpecialitySection from "@/components/specialitySection";
 import ContactSection from "@/components/contact/contactSection";
 
 export default async function Home() {
-  const portfolioData = await client.fetch<Portfolio[]>(PORTFOLIO_QUERY, {});
+  const portfolioData = await client.fetch<any[]>(PORTFOLIO_QUERY, {});
   const portfolio = portfolioData[0];
 
   if (!portfolio) {
