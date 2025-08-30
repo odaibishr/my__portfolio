@@ -30,7 +30,7 @@ export default function HeroSection({ data }: {
     });
 
     return <>
-        <section className="container mx-auto flex flex-col items-center justify-center h-screen">
+        <section className="container mx-auto flex flex-col items-center justify-center h-[calc(100vh-5rem)]">
 
             <div className="">
                 {/* <!-- Announcement Banner --> */}
