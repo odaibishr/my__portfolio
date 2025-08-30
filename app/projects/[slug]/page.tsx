@@ -1,11 +1,13 @@
 import { client } from "@/sanity/lib/client";
 import { PROJECTS_DETAIL_QUERY } from "@/sanity/queries";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import MainButton from "@/components/mainButton";
 import ContactSection from "@/components/contact/contactSection";
+import ProjectBanner from "@/components/project-details/ProjectBanner";
+import ProjectHeader from "@/components/project-details/ProjectHeader";
+import TechBadges from "@/components/project-details/TechBadges";
+import ProjectMeta from "@/components/project-details/ProjectMeta";
+import TechList from "@/components/project-details/TechList";
 
 export default async function ProjectDetails({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -18,41 +20,9 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                     <ArrowLeft size={20} />
                     <p className="text-muted-foreground">Back to projects</p>
                 </Link>
-                <div className="flex items-start flex-col md:flex-row justify-center gap-5 mt-4 mb-4 ">
-                    <div className="border-2 border-border rounded-2xl">
-                        {project?.prjectImage && (
-                            <Image
-                                width={1300}
-                                height={300}
-                                src={urlFor(project.prjectImage).url()}
-                                alt="Project banner"
-                                className="rounded-2xl"
-                            />
-                        )}
-                    </div>
-
-                </div>
-                <div className="flex flex-col md:flex-row justify-between">
-                    <p className="text-xl md:text-2xl font-bold">{project?.title || ""}</p>
-                    <div className="mt-4 md:mt-0 flex items-center gap-4">
-                        {project?.liveUrl && (
-                            <MainButton text="View Project" href={project?.liveUrl} />
-                        )}
-                        {project?.githubUrl && (
-                            <MainButton text="Source Code" href={project?.githubUrl} />
-                        )}
-                    </div>
-                </div>
-                <div className="mt-4">
-                    {/* <p className="mt-4 text-lg font-semibold">Technologies</p> */}
-                    <div className="flex flex-wrap items-center gap-2 mt-2">
-                        {project?.skills?.map((skill: any) => (
-                            <div key={skill._key} className="flex items-center gap-2 bg-accent py-1 px-4 rounded-full">
-                                <p className="text-sm font-semibold">{skill.title}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <ProjectBanner imageUrl={project?.prjectImage} />
+                <ProjectHeader title={project?.title} liveUrl={project?.liveUrl} githubUrl={project?.githubUrl} />
+                <TechBadges techs={project?.skills} />
                 <div className="flex flex-col md:flex-row gap-5 md:items-center justify-between">
                     <div>
                         <h2 className="mt-4 text-lg font-bold">About Project</h2>
@@ -61,32 +31,11 @@ export default async function ProjectDetails({ params }: { params: Promise<{ slu
                 </div>
 
                 {/* Role and Client */}
-                <div className="mt-4 flex items-baseline gap-2">
-                    <h2 className="text-lg font-bold">Role:</h2>
-                    <p className="text-muted-foreground">{project?.role || ""}</p>
-                </div>
-                <div className="mt-2 flex items-baseline gap-2">
-                    <h2 className="text-lg font-bold">Client:</h2>
-                    <p className="text-muted-foreground">{project?.client || ""}</p>
-                </div>
+                <ProjectMeta role={project?.role} client={project?.client} />
+                
 
                 {/* Technologies */}
-                <div className="mt-4 items-baseline">
-                    <h2 className="text-lg font-bold">Technologies:</h2>
-                    <ul className="flex flex-col gap-2 mt-2 ml-4">
-                        {project?.skills?.map((skill: any) => (
-                            <li key={skill._key} className="list-disc list-inside">
-                                <span className="font-semibold">
-                                    {skill?.title}:{" "}
-                                </span>
-                                {skill.description && (
-                                    <span className="text-muted-foreground"> {skill?.description.slice(skill?.title.length)}</span>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-
-                </div>
+                <TechList skills={project?.skills} />
 
             </section>
             <ContactSection />
